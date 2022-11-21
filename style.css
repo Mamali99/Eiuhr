@@ -1,0 +1,31 @@
+body{
+    color: white;
+    background-color: #262626;
+    text-align: center;
+}
+.top{
+    text-align: left;
+}
+#timer{
+    font-size: 300%;
+}
+#egg, #timer, #start{
+    margin-top: 70px;
+}
+.hide{
+    display: none;
+}
+input[type=number] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid rgb(255, 253, 253);
+    border-radius: 5px;
+    background-color: #262620;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 120%;
+    color: white;
+  }
