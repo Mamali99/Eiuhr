@@ -1,7 +1,8 @@
 
 const btn = document.getElementById('btn');
 const min = document.getElementById('minuten');
-var strat = true;
+let timer = 0;
+var refreshIntervalId;
 btn.addEventListener('click', () => {
     if (btn.className === "start") {
         
@@ -9,18 +10,21 @@ btn.addEventListener('click', () => {
         btn.className = "ende";
         startTimer(min.value * 60, document.getElementById("timer"));
         min.disabled = true;
+
     } else {
-        document.getElementById("btn").src = "img\\start.png";
-        stopTimer();
+        clearInterval(refreshIntervalId);
+        document.getElementById("timer").textContent = "00 : 00";
+        document.getElementById("btn").src = "img\\start.png";   
         btn.className = "start";
         min.disabled = false;
-        strat = false;
+        
     }
 }, false);
 
 function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
+    timer = duration
+    var minutes, seconds;
+    refreshIntervalId = setInterval(function () {
 
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
@@ -30,7 +34,7 @@ function startTimer(duration, display) {
 
         display.textContent = minutes + ":" + seconds;
 
-        if (--timer < 0 && strat) {
+        if (--timer < 0) {
             timer = 0;
             document.getElementById("btn").src = "img\\start.png";
             min.disabled = false;
