@@ -9,7 +9,8 @@ body{
 #timer{
     font-size: 300%;
 }
-#egg, #timer, #start{
+
+.margin-top{
     margin-top: 70px;
 }
 
