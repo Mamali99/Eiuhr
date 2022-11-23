@@ -1,6 +1,7 @@
 
 const btn = document.getElementById('btn');
-const min = document.getElementById('minuten');
+const min = document.getElementById('minute');
+const sec = document.getElementById("second");
 let timer = 0;
 let audio = new Audio("audio/rang.mp3");
 var refreshIntervalId;
@@ -10,8 +11,10 @@ btn.addEventListener('click', () => {
 
         document.getElementById("btn").src = "img\\ende.png";
         btn.className = "ende";
-        startTimer(min.value, document.getElementById("timer"));
+        let time = parseInt(min.value*60) + parseInt(sec.value);
+        startTimer(time, document.getElementById("timer"));
         min.disabled = true;
+        sec.disabled = true;
 
     } else {
         clearInterval(refreshIntervalId);
@@ -19,7 +22,7 @@ btn.addEventListener('click', () => {
         document.getElementById("btn").src = "img\\start.png";
         btn.className = "start";
         min.disabled = false;
-
+        sec.disabled = false;
     }
 }, false);
 
@@ -40,6 +43,7 @@ function startTimer(duration, display) {
             timer = 0;
             document.getElementById("btn").src = "img\\start.png";
             min.disabled = false;
+            sec.disabled = false;
             audio.play();
             clearInterval(refreshIntervalId);
 

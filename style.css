@@ -12,9 +12,7 @@ body{
 #egg, #timer, #start{
     margin-top: 70px;
 }
-.hide{
-    display: none;
-}
+
 input[type=number] {
     width: 50%;
     padding: 12px 20px;
